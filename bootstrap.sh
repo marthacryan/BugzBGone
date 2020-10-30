@@ -1,4 +1,4 @@
 sudo apt-get install node npm
-curl https://raw.github.ibm.com/Martha-Cryan/Bugz-B-Gone/camera/finder.js?token=AABYCNEDECOCKY6UJYLGBUK7UXCOK -o finder.js
+curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/finder.js -o finder.js
 npm i tjbot
 node finder.js
