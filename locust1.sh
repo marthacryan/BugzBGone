@@ -96,6 +96,13 @@ if [ $RASPIAN_VERSION_ID -eq 8 ]; then
 #    apt-get install -y libasound2-dev
 fi
 
+wget https://nodejs.org/dist/v10.16.1/node-v10.16.1-linux-armv6l.tar.xz
+tar -xJf node-v10.16.1-linux-armv6l.tar.xz
+cd node-v10.16.1-linux-armv6l/
+sudo cp -R * /usr/local/
+curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/finder.js -o finder.js
+npm i tjbot
+
 #----remove outdated apt packages
 echo ""
 echo "Removing unused software packages [apt-get autoremove]"
