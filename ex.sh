@@ -1,6 +1,6 @@
 #!/usr/bin/expect
 
-set timeout -1
+set timeout 120
 
 spawn ./tjbootstrap.sh 
 
