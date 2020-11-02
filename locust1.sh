@@ -111,30 +111,25 @@ apt-get -y autoremove
 #----enable camera on raspbery pi
 echo ""
 echo "If your Raspberry Pi has a camera installed, TJBot can use it to see."
-read -p "Enable camera? [y/N] " choice </dev/tty
-case "$choice" in
-    "y" | "Y")
-        if grep "start_x=1" /boot/config.txt
-        then
-            echo "Camera is alredy enabled."
-        else
-            echo "Enabling camera."
-            if grep "start_x=0" /boot/config.txt
-            then
-                sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
-            else
-                echo "start_x=1" | tee -a /boot/config.txt >/dev/null 2>&1
-            fi
-            if grep "gpu_mem=128" /boot/config.txt
-            then
-                :
-            else
-                echo "gpu_mem=128" | tee -a /boot/config.txt >/dev/null 2>&1
-            fi
-        fi
-        ;;
-    *) ;;
-esac
+
+if grep "start_x=1" /boot/config.txt
+then
+    echo "Camera is alredy enabled."
+else
+    echo "Enabling camera."
+    if grep "start_x=0" /boot/config.txt
+    then
+        sed -i "s/start_x=0/start_x=1/g" /boot/config.txt
+    else
+        echo "start_x=1" | tee -a /boot/config.txt >/dev/null 2>&1
+    fi
+    if grep "gpu_mem=128" /boot/config.txt
+    then
+        :
+    else
+        echo "gpu_mem=128" | tee -a /boot/config.txt >/dev/null 2>&1
+    fi
+fi
 
 #----clone tjbot
 echo ""
@@ -157,7 +152,6 @@ echo "plugged in a speaker via HDMI, USB, or Bluetooth, this is a safe "
 echo "operation and you will be able to play sound and use the LED at the "
 echo "same time. If you plan to use the built-in audio jack, we recommend "
 echo "NOT disabling the sound kernel modules."
-read -p "Disable sound kernel modules? [y/N] " choice </dev/tty
 
 if [ -f /etc/modprobe.d/tjbot-blacklist-snd.conf ]; then
     echo "Enabling the kernel modules for the built-in audio jack."
@@ -259,7 +253,6 @@ these in the config.js files for each recipe you wish to run."
 echo "For more detailed guides on setting up service credentials, please see the
 README file of each recipe, or search instructables.com for \"tjbot\"."
 echo ""
-read -p "Press enter to continue" nonce </dev/tty
 
 #----tests
 echo ""
