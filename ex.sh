@@ -1,5 +1,7 @@
 #!/usr/bin/expect
 
+set timeout 120
+
 spawn ./tjbootstrap.sh 
 
 expect {[Y/n]} { send "\n" }
