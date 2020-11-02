@@ -1,2 +1,2 @@
 yes | sudo apt-get install expect
-sudo ./ex.sh
+curl -sL https://raw.githubusercontent.com/marthacryan/BugzBGone/master/ex.sh | sudo sh -
