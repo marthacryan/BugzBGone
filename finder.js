@@ -118,6 +118,11 @@ function classifyLatestFrame(){
                           console.log("found a locust");
 			  tj.shine("green");
                         }
+			else {
+
+			tj.shine('off');
+			
+			}
                         readyToMakeNextAPIRequest = true;
                     });
                 });
@@ -135,5 +140,3 @@ app.use(function (err, req, res, next) {
 })
 
 app.listen(8080, () => console.log('Server started on 8080'));
-
-
