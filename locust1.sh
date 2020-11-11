@@ -100,6 +100,7 @@ wget https://nodejs.org/dist/v10.16.1/node-v10.16.1-linux-armv6l.tar.xz
 tar -xJf node-v10.16.1-linux-armv6l.tar.xz
 cd node-v10.16.1-linux-armv6l/
 sudo cp -R * /usr/local/
+cd ..
 curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/finder.js -o finder.js
 curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/package.json -o package.json
 npm i
