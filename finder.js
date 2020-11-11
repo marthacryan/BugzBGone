@@ -19,7 +19,10 @@ const tj = new TJBot();
 tj.initialize(hardware);
 
 // defining a route
-
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
 
 // web-socket route
