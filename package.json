@@ -1,0 +1,20 @@
+{
+  "name": "multi_stream",
+  "version": "1.0.0",
+  "description": "",
+  "main": "pi-cam.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "ffmpeg-stream": "^0.6.0",
+    "jimp": "^0.16.1",
+    "raspivid-stream": "^0.2.1",
+    "tjbot": "^2.0.0"
+  }
+}

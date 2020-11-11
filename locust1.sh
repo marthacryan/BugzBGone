@@ -101,7 +101,8 @@ tar -xJf node-v10.16.1-linux-armv6l.tar.xz
 cd node-v10.16.1-linux-armv6l/
 sudo cp -R * /usr/local/
 curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/finder.js -o finder.js
-npm i tjbot
+curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/package.json -o package.json
+npm i
 
 #----remove outdated apt packages
 echo ""
