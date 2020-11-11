@@ -102,6 +102,8 @@ cd node-v10.16.1-linux-armv6l/
 sudo cp -R * /usr/local/
 cd ..
 
+curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/locust2.sh -o locust2.sh
+
 #----remove outdated apt packages
 echo ""
 echo "Removing unused software packages [apt-get autoremove]"
