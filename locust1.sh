@@ -103,7 +103,6 @@ sudo cp -R * /usr/local/
 cd ..
 curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/finder.js -o finder.js
 curl https://raw.githubusercontent.com/marthacryan/BugzBGone/master/package.json -o package.json
-npm i
 
 #----remove outdated apt packages
 echo ""
