@@ -1,28 +1,27 @@
-<!DOCTYPE html>
 <html>
-    <header>
-        <link rel="stylesheet" href="splide-2.4.12/dist/css/splide.min.css">
-        <link rel="stylesheet" href="index.css">
-        <script src="splide-2.4.12/dist/js/splide.min.js"></script>
-    </header>
+
     <body>
-        <div class="splide">
-            <div class="splide__track">
-                <ul class="splide__list">
-                    <div class="splide__slide">
-                        <img style="width:80%;" src="images/l1.jpg"/>
-                    </div>
-                    <div class="splide__slide">
-                        Slide 02
-                    </div>
-                    <div class="splide__slide">
-                        Slide 03
-                    </div>
-                </ul>
-            </div>
-        </div>
+
+        <script type="text/javascript" src="https://rawgit.com/131/h264-live-player/master/vendor/dist/http-live-player.js"></script>
+
         <script>
-            new Splide( '.splide' ).mount();
+
+            var canvas = document.createElement("canvas");
+
+            document.body.appendChild(canvas);
+
+
+
+            var wsavc = new WSAvcPlayer(canvas, "webgl");
+
+
+
+            var protocol = window.location.protocol === "https:" ? "wss:" : "ws:"
+
+            wsavc.connect(protocol + '//' + window.location.host + '/video-stream');
+
         </script>
+
     </body>
+
 </html>
