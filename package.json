@@ -15,6 +15,7 @@
     "ffmpeg-stream": "^0.6.0",
     "jimp": "^0.16.1",
     "raspivid-stream": "^0.2.1",
+    "request": "^2.88.2",
     "tjbot": "^2.0.0"
   }
 }
