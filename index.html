@@ -1,27 +1,40 @@
 <html>
+	<style>
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+	</style>
+	<body>
+		<h1> Locust Finder </h1>
+		<h1 id="foundLocust"> FOUND LOCUST </h1>
+		<script type="text/javascript" src="https://rawgit.com/131/h264-live-player/master/vendor/dist/http-live-player.js"></script>
 
-    <body>
-
-        <script type="text/javascript" src="https://rawgit.com/131/h264-live-player/master/vendor/dist/http-live-player.js"></script>
-
-        <script>
-
-            var canvas = document.createElement("canvas");
-
-            document.body.appendChild(canvas);
-
-
-
-            var wsavc = new WSAvcPlayer(canvas, "webgl");
-
-
-
-            var protocol = window.location.protocol === "https:" ? "wss:" : "ws:"
-
-            wsavc.connect(protocol + '//' + window.location.host + '/video-stream');
-
-        </script>
-
-    </body>
-
+		<script>
+var canvas = document.createElement("canvas");
+document.body.appendChild(canvas);
+var wsavc = new WSAvcPlayer(canvas, "webgl");
+var protocol = window.location.protocol === "https:" ? "wss:" : "ws:"
+wsavc.connect(protocol + '//' + window.location.host + '/video-stream');
+window.WebSocket = window.WebSocket || window.MozWebSocket;
+var connection = new WebSocket(protocol + '//' + window.location.host + '/locust-found');
+console.log(protocol + '//' + window.location.host + '/locust-found');
+connection.onmessage = function(message) {
+	try {
+		var json = JSON.parse(message.data);
+	} catch (e) {
+		console.log('This isnt valid', message.data);
+		return
+	}
+	if (json.locustFound) {
+		document.getElementById('foundLocust').style.display = 'block';
+	} else {
+		document.getElementById('foundLocust').style.display = 'none';
+	}	
+	console.log(json);
+};
+		</script>
+	</body>
 </html>
